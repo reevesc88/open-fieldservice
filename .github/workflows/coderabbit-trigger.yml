@@ -4,6 +4,10 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
+concurrency:
+  group: request-coderabbit-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 permissions:
   pull-requests: write
 
@@ -12,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Request CodeRabbit and Gemini reviews
-        uses: actions/github-script@v7
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
         with:
           script: |
             const { owner, repo } = context.repo;
@@ -26,5 +30,13 @@ jobs:
               });
               core.info('Review requested from coderabbitai and google-gemini');
             } catch (e) {
-              core.warning('Could not request reviewers: ' + e.message);
+              const status = e.response?.status;
+              const msg = e.response?.data?.message ?? e.message;
+              // 422 = reviewer already requested or not a collaborator — benign
+              if (status === 422) {
+                core.warning(`Reviewer request returned 422 (benign): ${msg}`);
+              } else {
+                core.error(`Reviewer request failed: ${status ?? ''} ${msg}`);
+                throw e;
+              }
             }

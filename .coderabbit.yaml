@@ -5,22 +5,23 @@ reviews:
   auto_review:
     enabled: true
     drafts: true
-    base_branches: ["main", "master"]
+    base_branches:
+      - main
+      - master
   path_filters:
+    - "!**/pnpm-lock.yaml"
+    - "!**/package-lock.json"
+    - "!**/yarn.lock"
     - "!**/*.lock"
     - "!**/venv/**"
     - "!**/node_modules/**"
     - "!**/frameworks/**"
     - "!**/dist/**"
     - "!**/build/**"
-  finishing_touches:
-    docstrings:
-      enabled: false
   review_status: true
   poem: false
   collapse_walkthrough: false
-  sequence_diagrams: false
 chat:
   auto_reply: true
 knowledge_base:
-  opt_out: false
+  opt_out: true

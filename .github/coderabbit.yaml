@@ -1,1 +1,27 @@
-bGFuZ3VhZ2U6ICJlbi1VUyIKdG9uZV9pbnN0cnVjdGlvbnM6ICJCZSBjb25jaXNlIGFuZCBkaXJlY3QuIEZsYWcgc2VjdXJpdHkgaXNzdWVzIGxpa2UgZXhwb3NlZCBBUEkga2V5cywgbWlzc2luZyAuZ2l0aWdub3JlIGVudHJpZXMsIGFuZCBoYXJkY29kZWQgY3JlZGVudGlhbHMuIEZsYWcgZGF0YSBsb3NzIHJpc2tzLiBTa2lwIHN0eWxlIG5pdHBpY2tzLiIKcmV2aWV3czoKICBwcm9maWxlOiAiYXNzZXJ0aXZlIgogIGF1dG9fcmV2aWV3OgogICAgZW5hYmxlZDogdHJ1ZQogICAgZHJhZnRzOiB0cnVlCiAgICBiYXNlX2JyYW5jaGVzOgogICAgICAtIG1haW4KICAgICAgLSBtYXN0ZXIKICBwYXRoX2ZpbHRlcnM6CiAgICAtICIhKiovcG5wbS1sb2NrLnlhbWwiCiAgICAtICIhKiovcGFja2FnZS1sb2NrLmpzb24iCiAgICAtICIhKioveWFybi5sb2NrIgogICAgLSAiISoqLyoubG9jayIKICAgIC0gIiEqKi92ZW52LyoqIgogICAgLSAiISoqL25vZGVfbW9kdWxlcy8qKiIKICAgIC0gIiEqKi9mcmFtZXdvcmtzLyoqIgogICAgLSAiISoqL2Rpc3QvKioiCiAgICAtICIhKiovYnVpbGQvKioiCiAgcmV2aWV3X3N0YXR1czogdHJ1ZQogIHBvZW06IGZhbHNlCiAgY29sbGFwc2Vfd2Fsa3Rocm91Z2g6IGZhbHNlCmNoYXQ6CiAgYXV0b19yZXBseTogdHJ1ZQprbm93bGVkZ2VfYmFzZToKICBvcHRfb3V0OiB0cnVlCg==
+language: "en-US"
+tone_instructions: "Be concise and direct. Flag security issues like exposed API keys, missing .gitignore entries, and hardcoded credentials. Flag data loss risks. Skip style nitpicks."
+reviews:
+  profile: "assertive"
+  auto_review:
+    enabled: true
+    drafts: true
+    base_branches:
+      - main
+      - master
+  path_filters:
+    - "!**/pnpm-lock.yaml"
+    - "!**/package-lock.json"
+    - "!**/yarn.lock"
+    - "!**/*.lock"
+    - "!**/venv/**"
+    - "!**/node_modules/**"
+    - "!**/frameworks/**"
+    - "!**/dist/**"
+    - "!**/build/**"
+  review_status: true
+  poem: false
+  collapse_walkthrough: false
+chat:
+  auto_reply: true
+knowledge_base:
+  opt_out: true
