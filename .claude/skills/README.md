@@ -35,7 +35,7 @@ The externally-sourced skills track these upstream commits:
 
 The `project-blueprint` skill is authored in `reevesc88/claude-config` (not an
 external upstream). It bundles its `templates/blueprint/` set under the skill
-directory so it is self-contained. Pinned `claude-config` sha: `782dc01` (2026-07-22).
+directory so it is self-contained. Pinned `claude-config` sha: `c3b3455` (2026-07-22).
 
 ## Security note
 
