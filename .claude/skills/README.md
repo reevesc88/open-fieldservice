@@ -23,6 +23,7 @@ They are vendored into this repo so that cloud and phone Claude Code sessions fo
 | `gsap-frameworks` | GSAP in Vue, Svelte, and other non-React frameworks |
 | `design-dna` | Reverse-engineer a reference design into a Design DNA JSON, then generate UI |
 | `motion-design` | Universal motion-design principles (timing, easing, choreography) |
+| `project-blueprint` | Scaffold a tiered project blueprint doc set; bundles `templates/blueprint/` under the skill dir |
 
 ## Pinned upstream SHAs
 
@@ -31,6 +32,10 @@ The externally-sourced skills track these upstream commits:
 - **greensock/gsap-skills** (all `gsap-*` skills): `aed9cfd3277740755f6bfc1155c7aa645403b760`
 - **zanwei/design-dna** (`design-dna`): `9d9d79568df31cd846681f89fd3be1c3ce0c2aff`
 - **lottiefiles/motion-design-skill** (`motion-design`): `f9a8a041b85185ee4881b3471d3415e939aac772`
+
+The `project-blueprint` skill is authored in `reevesc88/claude-config` (not an
+external upstream). It bundles its `templates/blueprint/` set under the skill
+directory so it is self-contained. Pinned `claude-config` sha: `782dc01` (2026-07-22).
 
 ## Security note
 
